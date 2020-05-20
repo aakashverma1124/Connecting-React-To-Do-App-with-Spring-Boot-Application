@@ -10,4 +10,3 @@ We have added few dependencies in our Spring Boot APP.
 	<li>Spring Web</li>
 	<li>Devtools</li>	
 </ul>
-
