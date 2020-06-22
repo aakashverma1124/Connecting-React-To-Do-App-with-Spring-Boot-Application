@@ -21,9 +21,20 @@ public class ToDoHardcodedService {
 		todos.add(new ToDo(++idCounter, "aakashverma", "Learn to Code in React", new Date(), false));
 	}
 	
-	
 	public List<ToDo> findAll() {
 		return todos; 
+	}
+
+	public ToDo save(ToDo todo) {
+		if(todo.getId() == -1 || todo.getId() == 0) {
+			todo.setId(++idCounter);
+			todos.add(todo);
+		}
+		else {
+			deleteById(todo.getId());
+			todos.add(todo);
+		}
+		return todo;
 	}
 	
 	public ToDo deleteById(long id) {
