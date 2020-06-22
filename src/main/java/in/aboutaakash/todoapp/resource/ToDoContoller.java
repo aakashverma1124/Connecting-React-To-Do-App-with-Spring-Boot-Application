@@ -26,13 +26,17 @@ public class ToDoContoller {
 		 
 	}
 	
+	@GetMapping(path = "/users/{username}/todos/{id}")
+	public ToDo getTodo(@PathVariable String username, @PathVariable long id) {
+		return todoService.findById(id);
+	}
 	@DeleteMapping(path = "/users/{username}/todos/{id}")
 	public ResponseEntity<Void> deleteById(@PathVariable String username, @PathVariable long id) {
 		ToDo todo = todoService.deleteById(id);
 		if(todo != null) {
 			return ResponseEntity.noContent().build();
 		}
-		return ResponseEntity.notFound().build();
-	}
+		return ResponseEntity.notFound().build(); 
+	}  
 
 }
